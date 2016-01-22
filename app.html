@@ -1,0 +1,50 @@
+
+<div class="row" ng-controller="noeudPapController as noeudPap" style="margin-top: 50px;">	
+	<div class="col-md-3">
+	
+		<h3 class="text-center">Couleur principale</h3>
+		<ul class="img-thumbnails pull-left">
+			<li class="small-image pull-left thumbnail" ng-repeat="thumbP in noeudPap.couleurs" ng-show="thumbP.disponible">
+				<a href ng-click="noeudPap.selectColor(thumbP.id)">
+					<img ng-src="{{thumbP.images.thumb}}" />
+				</a>
+			</li>
+		</ul>
+		
+		<br />
+		
+		<h3 class="text-center">Couleur du milieu</h3>
+		<ul class="img-thumbnails pull-left">
+			<li class="small-image pull-left thumbnail"  ng-repeat="thumbM in noeudPap.couleurs" ng-show="thumbM.disponible">
+				<a href ng-click="noeudPap.selectColorM(thumbM.id)">
+					<img ng-src="{{thumbM.images.thumb}}" />
+				</a>
+			</li>
+		</ul>
+		
+	</div>
+	
+	<div class="col-md-9">
+		<div style="margin-bottom: 50px;" ng-controller="renduNoeudController as rendu">
+			<h2>Le noeud personnalisé</h2><br/><br/>
+			
+			<h3>La couleur principale :</h3>
+			<div ng-repeat="couleurP in noeudPap.couleurs" ng-show="noeudPap.isSelected(couleurP.id)">
+				<p>
+					{{couleurP.nom}}
+				</p>
+				
+				<img ng-src="{{couleurP.images.principal}}" class="img-responsive" alt="Couleur principale">
+			</div>
+			<br/>
+			<h3>La couleur du milieu :</h3>
+			<div ng-repeat="couleurM in noeudPap.couleurs" ng-show="noeudPap.isSelectedM(couleurM.id)">
+				<p>
+					{{couleurM.nom}}
+				</p>
+				
+				<img ng-src="{{couleurM.images.milieu}}" class="img-responsive" alt="Couleur du milieu">
+			</div>
+		</div>
+	</div>
+</div> <!-- /class="row" -->

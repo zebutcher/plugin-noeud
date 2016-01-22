@@ -1,0 +1,22 @@
+.noeud > aside { text-align: center; }
+
+.noeud cite { font-style: italic; }
+
+.noeud .thumbnail .full {
+  min-width: 100px;
+  min-height: 150px;
+}
+
+.img-thumbnails li {
+	margin: 5px;
+}
+
+.thumbnail img {
+	max-height: 70px;
+	max-width: 70px;
+	
+}
+
+.active {
+	border: 1px solid green;
+}
